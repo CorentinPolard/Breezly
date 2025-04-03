@@ -5,9 +5,8 @@ body {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
-    background-color: rgb(175, 201, 255);
-
-
+    background-color: #90c0ff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
 }
 
@@ -15,9 +14,10 @@ header {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    background-color: #03457e;
+    background-color: #0046a8;
     color: white;
 }
+
 
 input {
     border-radius: 12px;
@@ -25,6 +25,8 @@ input {
 
 .main {
     flex-grow: 1;
+    display: flex;
+    flex-direction: row;
 
 }
 
@@ -32,6 +34,112 @@ input {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #03457e;
+    background: #0046a8;
     color: white;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.weather-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    
+}
+
+.weather-card {
+    position: relative;
+    width: 200px;
+    height: 270px;
+    border-radius: 10px;
+    background: linear-gradient(145deg, #c099ff, #af76ff);
+    box-shadow: 2px 2px 5px rgb(93, 64, 141), -3px -3px 2px #b192ff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 50px;
+}
+
+.weather-card_tokyo {
+    position: relative;
+    width: 200px;
+    height: 270px;
+    border-radius: 10px;
+    background: linear-gradient(145deg, #fff099, #ffe250);
+    box-shadow: 2px 2px 5px #979125, -3px -3px 2px #fff692;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+
+
+.weather-card h1,
+.weather-card_tokyo h1 {
+    position: absolute;
+    top: -15px;
+    right: 10px;
+    font-size: 50px;
+    color: #fff;
+
+}
+
+
+.weather-icon img {
+    width: 80%;
+    object-fit: contain;
+}
+
+
+.weather-card p,
+.weather-card_tokyo p {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 28px;
+    color: #fff;
+    text-align: center;
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+
+}
+
+input[type="text"] {
+    width: 200px;
+    padding: 8px;
+    border: none;
+    border-radius: 20px;
+    font-size: 12px;
+    background: linear-gradient(145deg, #e3e3e3, #ffffff);
+    box-shadow: inset 3px 3px 5px #a1a6b5,
+        inset -3px -3px 5px #ffffff;
+}
+
+
+
+
+input[type="submit"] {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 20px;
+    font-size: 12px;
+    color: white;
+    background: linear-gradient(145deg, #9390ff, #7b57ff);
+    cursor: pointer;
+}
+
+
+input[type="submit"]:active {
+    box-shadow: inset 3px 3px 6px #125699,
+        inset -3px -3px 6px #1E88E5;
 }
