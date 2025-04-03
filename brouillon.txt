@@ -1,3 +1,5 @@
+javaScript
+
 const validation = document.querySelector("#validation");
 const ville = document.querySelector("#ville");
 
@@ -26,3 +28,35 @@ async function showWeather(ville) {
         console.log(error);
     }
 }
+
+
+html
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/style/style.css">
+    <title>Breezly</title>
+</head>
+
+<body>
+    <header>
+        <h1>Breezly</h1>
+        <div>
+            <input type="text" id="ville" placeholder="Ville">
+            <button id="validation">Chercher</button>
+        </div>
+    </header>
+    <main class="main">
+
+        <script src="assets/script/script.js"></script>
+    </main>
+</body>
+<footer class="footer">
+    <p>@2025 Selvi, Marina, Corentin. Tous droits réservés</p>
+</footer>
+
+</html>
