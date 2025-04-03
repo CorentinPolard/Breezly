@@ -48,7 +48,7 @@ input {
     align-items: center;
     display: flex;
     justify-content: center;
-    
+
 }
 
 .weather-card {
@@ -128,7 +128,7 @@ input[type="text"] {
 
 
 
-input[type="submit"] {
+#validation {
     padding: 5px 10px;
     border: none;
     border-radius: 20px;
@@ -139,7 +139,7 @@ input[type="submit"] {
 }
 
 
-input[type="submit"]:active {
+#validation:active {
     box-shadow: inset 3px 3px 6px #125699,
         inset -3px -3px 6px #1E88E5;
 }
