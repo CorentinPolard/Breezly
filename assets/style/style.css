@@ -2,9 +2,10 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    display:flex;
+    display: flex;
     min-height: 100vh;
     flex-direction: column;
+
 }
 
 header {
@@ -19,15 +20,15 @@ input {
     border-radius: 12px;
 }
 
-.main{
-    flex-grow:1;
+.main {
+    flex-grow: 1;
+    background-image: url(../assets/img/test.png);
 }
 
-.footer{
-    display:flex;
+.footer {
+    display: flex;
     justify-content: center;
     align-items: center;
-    background:#10658e;
-    color:white;
+    background: #10658e;
+    color: white;
 }
-
