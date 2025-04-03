@@ -2,6 +2,9 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    display:flex;
+    min-height: 100vh;
+    flex-direction: column;
 }
 
 header {
@@ -14,11 +17,6 @@ header {
 
 input {
     border-radius: 12px;
-}body{
-    display:flex;
-   min-height: 100vh;
-   flex-direction: column;
-
 }
 
 .main{
