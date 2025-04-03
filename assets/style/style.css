@@ -2,16 +2,36 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    background-color: rgb(175, 201, 255);
+
+
+
 }
 
 header {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    background-color: #10658e;
+    background-color: #03457e;
     color: white;
 }
 
 input {
     border-radius: 12px;
+}
+
+.main {
+    flex-grow: 1;
+
+}
+
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #03457e;
+    color: white;
 }
