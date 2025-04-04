@@ -1,5 +1,8 @@
 const validation = document.querySelector("#validation");
 const ville = document.querySelector("#ville");
+const temp = document.querySelector(".dgr");
+const weatherIcon = document.querySelector("#weather-icon");
+
 const temperature = document.querySelector('.dgr');
 const description = document.querySelector("#description")
 const humidite = document.querySelector("humidity")
@@ -25,6 +28,29 @@ async function showWeather(ville) {
        
         // Attend la réponse de l'API et la convertit en JSON pour obtenir les données météo.
         const weather = await reponse.json();
+
+        temp.textContent = weather.current.temp_c;
+        const weatherCode = weather.current.condition.code;
+
+        // Association des codes météo aux images personnalisées
+        const customIcons = {
+            1000: "sun.png",  // Ensoleillé
+            1003: "sun_cloud.png",  // Partiellement nuageux
+            1006: "cloud.png",  // Nuageux
+            1009: "cloud.png",  // Très nuageux
+            1030: "cloud.png",  // Brume
+            1183: "rain.png",  // Pluie légère
+            1195: "rain.png",  // Pluie forte
+            1273: "storm.png",  // Orages avec pluie
+            1276: "storm.png",  // Orages violents
+            // Ajoute d'autres conditions météo si nécessaire
+        };
+
+        // Vérifie si le code météo existe dans la liste, sinon met une icône par défaut
+        const iconPath = customIcons[weatherCode] ? `/assets/img/${customIcons[weatherCode]}` : "/assets/img/default.png";
+
+        // Mise à jour de l'image météo
+        weatherIcon.src = iconPath;
         console.log(weather)
         temperature.textContent = weather.current.temp_c
         description.textContent = weather.current.condition.text
@@ -38,7 +64,11 @@ async function showWeather(ville) {
         console.log(error);
     }
 
+    
+
+
 }
+window.onload = showWeather("Paris");
 
 
 
