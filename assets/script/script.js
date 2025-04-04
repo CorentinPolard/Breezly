@@ -1,23 +1,19 @@
+// Boutons de recherches
 const validation = document.querySelector("#validation");
 const ville = document.querySelector("#ville");
+
+// Infos météo
 const temp = document.querySelector(".dgr");
 const weatherIcon = document.querySelector("#weather-icon");
-
 const temperature = document.querySelector('.dgr');
 const description = document.querySelector("#description")
 const humidite = document.querySelector("#humidity")
 const vent = document.querySelector("#wind")
 const city = document.querySelector("#city")
 
+// cards forecast
+const textContainer = document.querySelector("#text-container");
 
-
-validation.addEventListener('click', () => {
-    if (ville.value) {
-        showWeather(ville.value);
-    } else {
-        console.log("Ville introuvable");
-    }
-})
 
 async function showWeather(ville) {
     try {
@@ -26,7 +22,7 @@ async function showWeather(ville) {
 
         // Effectue une requête HTTP GET vers l'API WeatherAPI avec la clé API et la ville spécifiée.
         const reponse = await fetch(`http://api.weatherapi.com/v1/forecast.json?key=${marinaKey}&q=${ville}&aqi=no&days=3`);
-       
+
         // Attend la réponse de l'API et la convertit en JSON pour obtenir les données météo.
         const weather = await reponse.json();
 
@@ -47,7 +43,7 @@ async function showWeather(ville) {
             1273: "storm.png",  // Orages avec pluie
             1276: "storm.png",  // Orages violents
             1282: "storm.png",  // Orages violents avec grêle
-           
+
         };
 
         // Vérifie si le code météo existe dans la liste, sinon met une icône par défaut
@@ -55,26 +51,48 @@ async function showWeather(ville) {
 
         // Mise à jour de l'image météo
         weatherIcon.src = iconPath;
-        console.log(weather)
         temperature.textContent = weather.current.temp_c + "°C"
         description.textContent = weather.current.condition.text
-        humidite.textContent = "Taux d'humidité : "+ weather.current.humidity+ " %"
-        vent.textContent = "Vent : " +weather.current.wind_kph + " km/h"
+        humidite.textContent = "Taux d'humidité : " + weather.current.humidity + " %"
+        vent.textContent = "Vent : " + weather.current.wind_kph + " km/h"
         city.textContent = ville
-        
+
 
         // Affiche les données météo dans la console.
-        console.log(weather);
+        // console.log(weather);
+
+        textContainer.innerHTML = "";
+        for (day in weather.forecast.forecastday) {
+            const divJour = document.createElement("div");
+            divJour.setAttribute("class", "jour");
+            textContainer.appendChild(divJour);
+
+            divJour.innerHTML = `<div class="left-panel panel">
+            <div class="description"> ${weather.forecast.forecastday[day].date}</ div>
+                    <div class="city">${ville}</div>
+                    <img id="weather-icon2" class="weather-icon2" src="/assets/img/meteo.png" alt="Icône météo"
+                    width="130">
+                    </div>
+                    <div class="right-panel panel">
+                    <div class="dgr">${weather.forecast.forecastday[day].day.avgtemp_c}°C</div>
+                    <p class="humidity">Taux moyen d'humidité: ${weather.forecast.forecastday[day].day.avghumidity}</p>
+                    <p class="wind">Vitesse moyenne du vent: ${weather.forecast.forecastday[day].day.avgwind_kph}km/h</p>
+                    </div>`;
+        }
     } catch (error) {
         console.log(error);
     }
-
-    
-
-
 }
+
 window.onload = showWeather("Paris");
 
+validation.addEventListener('click', () => {
+    if (ville.value) {
+        showWeather(ville.value);
+    } else {
+        console.log("Ville introuvable");
+    }
+})
 
 
 
