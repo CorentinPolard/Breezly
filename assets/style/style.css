@@ -107,7 +107,7 @@ input {
     color: rgb(255, 255, 255);
 }
 
-.left-panel .ville {
+.left-panel .city {
     font-size: 21px;
     font-weight: bold;
     text-transform: uppercase;
@@ -123,6 +123,12 @@ input {
     align-items: center;
     gap: 8px;
     margin-top: 10px;
+}
+
+.wind, .humidity{
+    font-size: 17px;
+    color: #ffffff;
+    margin-top: 5px;
 }
 
 .weather-icon {

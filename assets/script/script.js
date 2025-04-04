@@ -5,8 +5,9 @@ const weatherIcon = document.querySelector("#weather-icon");
 
 const temperature = document.querySelector('.dgr');
 const description = document.querySelector("#description")
-const humidite = document.querySelector("humidity")
-const vent = document.querySelector("wind")
+const humidite = document.querySelector("#humidity")
+const vent = document.querySelector("#wind")
+const city = document.querySelector("#city")
 
 
 
@@ -52,10 +53,11 @@ async function showWeather(ville) {
         // Mise à jour de l'image météo
         weatherIcon.src = iconPath;
         console.log(weather)
-        temperature.textContent = weather.current.temp_c
+        temperature.textContent = weather.current.temp_c + "°C"
         description.textContent = weather.current.condition.text
-        humidite.textContent = weather.current.humidity
-        vent.textContent = weather.current
+        humidite.textContent = "Taux d'humidité : "+ weather.current.humidity+ " %"
+        vent.textContent = "Vent : " +weather.current.wind_kph + " km/h"
+        city.textContent = ville
         
 
         // Affiche les données météo dans la console.
