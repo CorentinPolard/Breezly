@@ -59,7 +59,7 @@ async function showWeather(ville) {
 
 
         // Affiche les données météo dans la console.
-        // console.log(weather);
+        console.log(weather);
 
         textContainer.innerHTML = "";
         for (day in weather.forecast.forecastday) {
@@ -67,10 +67,13 @@ async function showWeather(ville) {
             divJour.setAttribute("class", "jour");
             textContainer.appendChild(divJour);
 
+            const weatherCode2 = weather.forecast.forecastday[day].day.condition.code;
+            const iconPath2 = customIcons[weatherCode2] ? `./assets/img/${customIcons[weatherCode2]}` : "./assets/img/meteo.png";
+
             divJour.innerHTML = `<div class="left-panel panel">
             <div class="description"> ${weather.forecast.forecastday[day].date}</ div>
                     <div class="city">${ville}</div>
-                    <img id="weather-icon2" class="weather-icon2" src="${iconPath }" alt="Icône météo"
+                    <img id="weather-icon2" class="weather-icon2" src="${iconPath2}" alt="Icône météo"
                     width="130">
                     </div>
                     <div class="right-panel panel">
