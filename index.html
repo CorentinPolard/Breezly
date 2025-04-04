@@ -16,33 +16,41 @@
             <button id="validation">Chercher</button>
         </div>
     </header>
+
     <main class="main">
-
-        <script src="assets/script/script.js"></script>
-
-        <div class="weather-wrapper">
+        <!--div class="weather-wrapper">
             <div class="weather-card madrid">
-                <h1 class="dgr">26º</h1>
+                <h1 class="dgr"></h1>
+                <p id="description"></p>
                 <div class="weather-icon">
                     <img src="/assets/img/cloud.png" alt="Nuage">
                 </div>
-                <p>Madrid</p>
+                <p id="place"></p>
             </div>
-        </div>
+        </div -->
 
         <div class="weather-wrapper">
-            <div class="weather-card_tokyo">
-                <h1 class="dgr">26º</h1>
-                <div class="weather-icon">
-                    <img src="/assets/img/sun_cloud.png" alt="Nuage">
+            <div class="weather-card madrid">
+                <div class="weather-info">
+                    <p id="description"></p>
+                    <h1 class="dgr"></h1>
                 </div>
-                <p>Tokyo</p>
+                <div class="weather-icon">
+                    <img src="/assets/img/cloud.png" alt="Nuage">
+                </div>
+                <div class="weather-info">
+                    <p id="humidity"></p>
+                    <p id="wind"></p>
+                </div>
+                <p id="place"></p>
             </div>
         </div>
     </main>
+
+    <footer class="footer">
+        <p>@2025 Selvi, Marina, Corentin. Tous droits réservés</p>
+    </footer>
+    <script src="assets/script/script.js"></script>
 </body>
-<footer class="footer">
-    <p>@2025 Selvi, Marina, Corentin. Tous droits réservés</p>
-</footer>
 
 </html>

@@ -1,13 +1,13 @@
+// Boutons de recherche
 const validation = document.querySelector("#validation");
 const ville = document.querySelector("#ville");
 
-validation.addEventListener('click', () => {
-    if (ville.value) {
-        showWeather(ville.value);
-    } else {
-        console.log("Ville introuvable");
-    }
-})
+// Infos météo
+const temperature = document.querySelector(".dgr");
+const description = document.querySelector("#description");
+const place = document.querySelector("#place");
+const humidite = document.querySelector("#humidity");
+const vent = document.querySelector("#wind");
 
 async function showWeather(ville) {
     try {
@@ -20,9 +20,24 @@ async function showWeather(ville) {
         // Attend la réponse de l'API et la convertit en JSON pour obtenir les données météo.
         const weather = await reponse.json();
 
-        // Affiche les données météo dans la console.
-        console.log(weather);
+        // Change les données météo sur la card
+        temperature.textContent = weather.current.temp_c + "°C";
+        description.textContent = weather.current.condition.text;
+        place.textContent = ville;
+        humidite.textContent = "Humidité : " + weather.current.humidity;
+        vent.textContent = "Vent : " + weather.current.wind_dir;
+
     } catch (error) {
         console.log(error);
     }
 }
+
+window.onload = showWeather("Paris");
+
+validation.addEventListener('click', () => {
+    if (ville.value) {
+        showWeather(ville.value);
+    } else {
+        console.log("Ville introuvable");
+    }
+})

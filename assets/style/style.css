@@ -12,14 +12,14 @@ body {
 
 header {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
     background-color: #0046a8;
     color: white;
-    height: 100px;
 }
 
-.titre{
+.titre {
     font-size: 80px;
     margin: 20px;
 }
@@ -32,8 +32,9 @@ input {
 .main {
     flex-grow: 1;
     display: flex;
-    flex-direction: row;
-
+    justify-content: center;
+    align-items: center;
+    padding: 50px 0;
 }
 
 .footer {
@@ -52,48 +53,47 @@ input {
     display: flex;
     justify-content: center;
     align-items: center;
-    display: flex;
-    justify-content: center;
-
 }
 
 .weather-card {
-    position: relative;
-    width: 200px;
-    height: 270px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* margin: 50px; */
+    /* position: relative; */
+    width: 275px;
+    /* height: 270px; */
     border-radius: 10px;
     background: linear-gradient(145deg, #c099ff, #af76ff);
     box-shadow: 2px 2px 5px rgb(93, 64, 141), -3px -3px 2px #b192ff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 50px;
 }
 
-.weather-card_tokyo {
-    position: relative;
-    width: 200px;
-    height: 270px;
-    border-radius: 10px;
-    background: linear-gradient(145deg, #fff099, #ffe250);
-    box-shadow: 2px 2px 5px #979125, -3px -3px 2px #fff692;
+.weather-info {
+    width: 100%;
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    justify-content: center;
-
+    padding: 0 10px;
 }
 
+.weather-icon {
+    display: flex;
+    justify-content: center;
+}
 
+#place {
+    font-size: 2em;
+}
 
-.weather-card h1,
-.weather-card_tokyo h1 {
+/* .weather-card h1 {
     position: absolute;
     top: -15px;
     right: 10px;
     font-size: 50px;
     color: #fff;
 
-}
+} */
 
 
 .weather-icon img {
@@ -102,8 +102,7 @@ input {
 }
 
 
-.weather-card p,
-.weather-card_tokyo p {
+/* .weather-card p {
     position: absolute;
     bottom: 10px;
     left: 50%;
@@ -111,7 +110,7 @@ input {
     font-size: 28px;
     color: #fff;
     text-align: center;
-}
+} */
 
 .form {
     display: flex;
