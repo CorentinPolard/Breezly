@@ -47,7 +47,7 @@ async function showWeather(ville) {
         };
 
         // Vérifie si le code météo existe dans la liste, sinon met une icône par défaut
-        const iconPath = customIcons[weatherCode] ? `/assets/img/${customIcons[weatherCode]}` : "/assets/img/default.png";
+        const iconPath = customIcons[weatherCode] ? `./assets/img/${customIcons[weatherCode]}` : "./assets/img/meteo.png";
 
         // Mise à jour de l'image météo
         weatherIcon.src = iconPath;
@@ -70,13 +70,13 @@ async function showWeather(ville) {
             divJour.innerHTML = `<div class="left-panel panel">
             <div class="description"> ${weather.forecast.forecastday[day].date}</ div>
                     <div class="city">${ville}</div>
-                    <img id="weather-icon2" class="weather-icon2" src="/assets/img/meteo.png" alt="Icône météo"
+                    <img id="weather-icon2" class="weather-icon2" src="${iconPath }" alt="Icône météo"
                     width="130">
                     </div>
                     <div class="right-panel panel">
                     <div class="dgr">${weather.forecast.forecastday[day].day.avgtemp_c}°C</div>
                     <p class="humidity">Taux moyen d'humidité: ${weather.forecast.forecastday[day].day.avghumidity}</p>
-                    <p class="wind">Vitesse moyenne du vent: ${weather.forecast.forecastday[day].day.avgwind_kph}km/h</p>
+                    <p class="wind">Vitesse maximale du vent: ${weather.forecast.forecastday[day].day.maxwind_kph}km/h</p>
                     </div>`;
         }
     } catch (error) {
