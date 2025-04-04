@@ -85,7 +85,7 @@ input {
 .widget {
     max-width: 400px;
     margin: 100px auto;
-    background: linear-gradient(145deg, #ccacff, #af76ff);
+    background: linear-gradient(145deg, #9e97ff, #906bff);
     box-shadow: 2px 2px 5px rgb(93, 64, 141), -3px -3px 2px #b192ff;
     border-radius: 12px;
     box-shadow: 0px 31px 35px -26px #080c21;
@@ -125,7 +125,8 @@ input {
     margin-top: 10px;
 }
 
-.wind, .humidity{
+.wind,
+.humidity {
     font-size: 17px;
     color: #ffffff;
     margin-top: 5px;
@@ -146,21 +147,45 @@ input {
     margin: auto;
     flex-wrap: wrap;
     flex-direction: column;
+
 }
 
-.jour1,
-.jour2,
-.jour3 {
+.jour {
     background-color: rgba(0, 126, 229, 0.781);
     padding: 3em;
     box-shadow: 2px 2px 5px rgb(93, 64, 141), -3px -3px 2px #b192ff;
     border-radius: 12px;
     box-shadow: 0px 31px 35px -26px #080c21;
+    color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+
+
+}
+
+.jour .dgr {
+    font-size: 100px;
+    color: #ffffffe6;
+    margin-top: -30px;
+
+
+}
+
+.jour .humidity {
+    font-size: 30px;
+
+}
+
+.jour .wind {
+    font-size: 30px;
+
 }
 
 
 @media (max-width: 480px) {
-    .widget {
+
+    .widget,
+    .text-container {
         flex-direction: column;
         text-align: center;
     }
@@ -173,4 +198,38 @@ input {
         max-width: 120px;
         margin: 0 auto;
     }
+
+
+    .jour {
+        background-color: rgba(0, 126, 229, 0.781);
+        padding: 3em;
+        box-shadow: 2px 2px 5px rgb(93, 64, 141), -3px -3px 2px #b192ff;
+        border-radius: 12px;
+        box-shadow: 0px 31px 35px -26px #080c21;
+        color: #ffffff;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+
+
+    }
+
+    .jour .dgr {
+        font-size: 90px;
+        color: #ffffffe6;
+        margin-top: -20px;
+
+
+    }
+
+    .jour .humidity {
+        font-size: 32px;
+
+    }
+
+    .jour .wind {
+        font-size: 20px;
+
+    }
+
 }

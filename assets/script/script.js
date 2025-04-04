@@ -31,6 +31,8 @@ async function showWeather(ville) {
         const weather = await reponse.json();
 
         temp.textContent = weather.current.temp_c;
+
+
         const weatherCode = weather.current.condition.code;
 
         // Association des codes météo aux images personnalisées
@@ -44,7 +46,8 @@ async function showWeather(ville) {
             1195: "rain.png",  // Pluie forte
             1273: "storm.png",  // Orages avec pluie
             1276: "storm.png",  // Orages violents
-            // Ajoute d'autres conditions météo si nécessaire
+            1282: "storm.png",  // Orages violents avec grêle
+           
         };
 
         // Vérifie si le code météo existe dans la liste, sinon met une icône par défaut
