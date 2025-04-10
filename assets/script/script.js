@@ -21,7 +21,7 @@ async function showWeather(ville) {
         const marinaKey = "dee9c68a0d304fbe91095156250304";
 
         // Effectue une requête HTTP GET vers l'API WeatherAPI avec la clé API et la ville spécifiée.
-        const reponse = await fetch(`http://api.weatherapi.com/v1/forecast.json?key=${marinaKey}&q=${ville}&aqi=no&days=3`);
+        const reponse = await fetch(`http://api.weatherapi.com/v1/forecast.json?key=${marinaKey}&q=${ville}&aqi=no&days=4`);
 
         // Attend la réponse de l'API et la convertit en JSON pour obtenir les données météo.
         const weather = await reponse.json();
@@ -59,31 +59,33 @@ async function showWeather(ville) {
 
 
         // Affiche les données météo dans la console.
-        console.log(weather);
+        // console.log(weather);
 
         textContainer.innerHTML = "";
         for (day in weather.forecast.forecastday) {
-            const divJour = document.createElement("div");
-            divJour.setAttribute("class", "jour");
-            textContainer.appendChild(divJour);
+            if (day != 0) {
+                const divJour = document.createElement("div");
+                divJour.setAttribute("class", "jour");
+                textContainer.appendChild(divJour);
 
-            const weatherCode2 = weather.forecast.forecastday[day].day.condition.code;
-            const iconPath2 = customIcons[weatherCode2] ? `./assets/img/${customIcons[weatherCode2]}` : "./assets/img/meteo.png";
+                const weatherCode2 = weather.forecast.forecastday[day].day.condition.code;
+                const iconPath2 = customIcons[weatherCode2] ? `./assets/img/${customIcons[weatherCode2]}` : "./assets/img/meteo.png";
 
-            divJour.innerHTML = `<div class="left-panel panel">
-            <div class="description"> ${weather.forecast.forecastday[day].date}</ div>
-                    <div class="city">${ville}</div>
-                    <img id="weather-icon2" class="weather-icon2" src="${iconPath2}" alt="Icône météo"
-                    width="130">
-                    </div>
-                    <div class="right-panel panel">
-                    <div class="dgr">${weather.forecast.forecastday[day].day.avgtemp_c}°C</div>
-                    <p class="humidity">Taux moyen d'humidité: ${weather.forecast.forecastday[day].day.avghumidity}</p>
-                    <p class="wind">Vitesse maximale du vent: ${weather.forecast.forecastday[day].day.maxwind_kph}km/h</p>
-                    </div>`;
+                divJour.innerHTML = `<div class="left-panel panel">
+                <div class="description"> <p>${weather.forecast.forecastday[day].date}</p></ div>
+                        <div class="city"><p>${ville} - ${weather.forecast.forecastday[day].day.condition.text}</p></div>
+                        <img id="weather-icon2" class="weather-icon2" src="${iconPath2}" alt="Icône météo"
+                        width="130">
+                        </div>
+                        <div class="right-panel panel">
+                        <div class="dgr"><p>${weather.forecast.forecastday[day].day.avgtemp_c}°C</p></div>
+                        <p class="humidity">Taux moyen d'humidité: ${weather.forecast.forecastday[day].day.avghumidity}</p>
+                        <p class="wind">Vitesse maximale du vent: ${weather.forecast.forecastday[day].day.maxwind_kph}km/h</p>
+                        </div>`;
+            }
         }
     } catch (error) {
-        console.log(error);
+        alert(error);
     }
 }
 
@@ -93,7 +95,7 @@ validation.addEventListener('click', () => {
     if (ville.value) {
         showWeather(ville.value);
     } else {
-        console.log("Ville introuvable");
+        alert("Veuillez chercher le nom d'une ville.");
     }
 })
 
