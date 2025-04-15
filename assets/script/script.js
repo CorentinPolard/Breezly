@@ -21,7 +21,7 @@ async function showWeather(ville) {
         const marinaKey = "dee9c68a0d304fbe91095156250304";
 
         // Effectue une requête HTTP GET vers l'API WeatherAPI avec la clé API et la ville spécifiée.
-        const reponse = await fetch(`http://api.weatherapi.com/v1/forecast.json?key=${marinaKey}&q=${ville}&aqi=no&days=4`);
+        const reponse = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=${marinaKey}&q=${ville}&aqi=no&days=4`);
 
         // Attend la réponse de l'API et la convertit en JSON pour obtenir les données météo.
         const weather = await reponse.json();
